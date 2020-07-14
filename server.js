@@ -1,9 +1,11 @@
-const http = require("http");
+const express = require("express");
+const app = express();
+const port = 3000;
 
-http.createServer((request, response) => {
-    response.writeHead(200, {
-        "Content-Type": "text/plain"
-    });
-    response.write("Hello");
-    response.end();
-}).listen(8080);
+app.get("/", function(request, response) {
+    response.send("Hello from express");
+})
+
+app.listen(port, function() {
+    console.log(`Listening on ${port}`);
+})
